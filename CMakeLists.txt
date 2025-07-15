@@ -6,11 +6,19 @@ project(cGit C)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/out/${CMAKE_BUILD_TYPE})
 
 enable_testing()
+find_package(ZLIB REQUIRED)
+find_package(OpenSSL REQUIRED)
 
 add_executable(cGit src/main.c)
-target_include_directories(cGit PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(cGit PRIVATE ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/include/commands
+    ${CMAKE_SOURCE_DIR}/include/core
+${CMAKE_SOURCE_DIR}/include/util
+)
+target_link_libraries(cGit PRIVATE ZLIB::ZLIB)
+target_link_libraries(cGit PRIVATE OpenSSL::Crypto)
 
-file(GLOB EXTRA_SOURCES "src/*.c")
+file(GLOB EXTRA_SOURCES "src/*.c" "src/*/*.c")
 list(REMOVE_ITEM EXTRA_SOURCES "${CMAKE_SOURCE_DIR}/src/main.c")
 target_sources(cGit PRIVATE ${EXTRA_SOURCES})
 

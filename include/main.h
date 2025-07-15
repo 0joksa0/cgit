@@ -1,0 +1,5 @@
+#define DOT_GIT_OBJ ".mygit/objects"
+#define FILE_CD "100644"
+#define EXECUTABLE_CD "100755"
+#define SYMBOLIC_CD "120000"
+#define DIR_CD "40000"
