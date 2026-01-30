@@ -4,6 +4,7 @@
 #include "init.h"
 #include "blobCommands.h"
 #include "treeCommands.h"
+#include "addCommands.h"
 
 int main(int argc, char** argv)
 {
@@ -28,7 +29,9 @@ int main(int argc, char** argv)
         listTree(params);
     } else if (strcmp(command, "write-tree") == 0) {
         writeTree();
-    } else {
+    } else if (strcmp(command, "add") == 0) {
+        addToInexCommand(params);
+    }  else {
         fprintf(stderr, "Unknown command %s\n", command);
         return 1;
     }

@@ -172,3 +172,10 @@ cleanup:
     }
     return NULL;
 }
+
+
+
+unsigned char* writeTreeFromIndex(){
+
+    return NULL;
+}
