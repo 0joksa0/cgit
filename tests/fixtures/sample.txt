@@ -1,0 +1,8 @@
+Ovo je primjerni tekst koji služi samo za testiranje kompresije.
+Ovo je primjerni tekst koji služi samo za testiranje kompresije.
+Ovo je primjerni tekst koji služi samo za testiranje kompresije.
+Redak sa sličnim frazama, ponavlja se radi boljeg kompresovanja.
+Redak sa sličnim frazama, ponavlja se radi boljeg kompresovanja.
+Jedan jedinstven redak da se vidi razlika između ponavljanja i raznolikosti.
+Još malo nasumičnih riječi: jabuka, sto, nebo, program, test, kompresija, ponavljanje.
+Kraj testnog fajla.

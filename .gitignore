@@ -24,6 +24,7 @@ Makefile
 build/
 out/
 compile_commands.json
+cov_html/
 
 *.log
 

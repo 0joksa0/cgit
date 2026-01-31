@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 help() {
 	cat <<EOF
 Usage: ./build [OPTIONS]
@@ -151,10 +150,21 @@ if ((test)); then
 fi
 
 if ((coverage)); then
-	lcov --capture --directory "$build_dir" --output-file coverage.info --ignore-errors inconsistent
-	lcov --remove coverage.info '/usr/*' --output-file coverage.info
+	lcov --capture \
+	     --directory "$build_dir" \
+	     --output-file coverage.info \
+	     --ignore-errors inconsistent,mismatch
+
+	# Izbaci sistemske fajlove + testove + criterion
+	lcov --remove coverage.info \
+	     '/usr/*' \
+	     '*/tests/*' \
+	     '*/criterion/*' \
+	     --output-file coverage.info
+
 	genhtml coverage.info --output-directory cov_html >/dev/null
 	echo "Coverage HTML in $(pwd)/cov_html/index.html"
+
 	if command -v xdg-open >/dev/null; then
 		xdg-open cov_html/index.html >/dev/null 2>&1 &
 	fi

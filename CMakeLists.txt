@@ -31,6 +31,14 @@ if(BUILD_TESTS)
     add_executable(tests
         tests/test_main.c
         ${EXTRA_SOURCES})
+
+    target_include_directories(tests PRIVATE ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/include/commands
+        ${CMAKE_SOURCE_DIR}/include/core
+        ${CMAKE_SOURCE_DIR}/include/util
+    )
+    target_link_libraries(tests PRIVATE ZLIB::ZLIB)
+    target_link_libraries(tests PRIVATE OpenSSL::Crypto)
     
     target_include_directories(tests PRIVATE ${CRITERION_INCLUDE_DIRS})
     target_link_libraries(tests PRIVATE ${CRITERION_LIBRARIES})

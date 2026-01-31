@@ -53,7 +53,7 @@ unsigned char* tree(char* dir)
 
     for (int i = 0; i < n; i++) {
         char* name = entryList[i]->d_name;
-        char path[256];
+        char path[512];
         snprintf(path, sizeof(path), "%s/%s", dir, name);
 
         if (strcmp(name, ".") == 0 || strcmp(name, "..") == 0 || strcmp(name, ".git") == 0 || strcmp(name, ".mygit") == 0 || isIgnored(path)) {
